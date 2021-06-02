@@ -54,6 +54,6 @@ tensorflow-lattice==2.0.3
 tensorflow-metadata==0.21.1
 termcolor==1.1.0
 tqdm==4.43.0
-urllib3==1.25.8
+urllib3==1.26.5
 Werkzeug==1.0.0
 wrapt==1.11.2
