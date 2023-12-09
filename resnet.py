@@ -17,16 +17,17 @@
 #  along with PFYP.  If not, see <http://www.gnu.org/licenses/>.
 
 import tensorflow as tf
+import keras
 
 
-class ResBlock(tf.keras.Model):
+class ResBlock(keras.Model):
     def __init__(self, dim):
         super(ResBlock, self).__init__()
-        self.res_block = tf.keras.Sequential([
-            tf.keras.layers.ReLU(True),
-            tf.keras.layers.Conv1D(dim, dim, 5, padding='same'),
-            tf.keras.layers.ReLU(True),
-            tf.keras.layers.Conv1D(dim, dim, 5, padding='same'),
+        self.res_block = keras.Sequential([
+            keras.layers.ReLU(True),
+            keras.layers.Conv1D(dim, dim, 5, padding='same'),
+            keras.layers.ReLU(True),
+            keras.layers.Conv1D(dim, dim, 5, padding='same'),
         ])
 
     def call(self, input, **kwargs):

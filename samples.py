@@ -22,7 +22,7 @@ from __future__ import print_function
 import csv
 
 import tensorflow as tf
-from tensorflow import keras
+import keras
 import numpy as np
 
 from tensorflow.python.client import session
@@ -62,6 +62,7 @@ with open('data/samples.txt', "w") as f:
 print('DISCLAIMER: The following generated characters are for research purposes only')
 stringList = ''.join(map(str, charList))
 print(stringList)
+
 
 # Displays interactive model flow in tensorboard
 def import_to_tensorboard(model_dir, log_dir, tag_set):

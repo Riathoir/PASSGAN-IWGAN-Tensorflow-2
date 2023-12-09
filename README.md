@@ -1,5 +1,5 @@
-PSA: I will update the project to fix outstanding issues by 1Q2024.maintenance issues are due to lack of nvidia gpu (for tensorflow) 
-
+Update: Running fine off Windows 11 09/12/2023, 'python GAN.py --dataset rock_you'
+Information below is original readme from 2019 and may likely be defunct
 
  PassGAN Evaluation
 =======================

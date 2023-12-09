@@ -28,6 +28,7 @@ from functools import partial
 from pathlib import Path
 
 import tensorflow as tf
+import keras
 import tensorflow_datasets as tfds
 from absl import flags
 from tensorflow import random
@@ -81,8 +82,8 @@ class WGANGP:
         self.encoder = dataset_info.features['password'].encoder
         self.G = BuildGenerator(layer_dim=self.layer_dim, seq_len=self.seq_len)
         self.D = BuildDiscriminator(layer_dim=self.layer_dim, seq_len=self.seq_len)
-        self.g_opt = tf.keras.optimizers.Adam(learning_rate=FLAGS.g_lr, beta_1=0.5, beta_2=0.9)
-        self.d_opt = tf.keras.optimizers.Adam(learning_rate=FLAGS.d_lr, beta_1=0.5, beta_2=0.9)
+        self.g_opt = keras.optimizers.Adam(learning_rate=FLAGS.g_lr, beta_1=0.5, beta_2=0.9)
+        self.d_opt = keras.optimizers.Adam(learning_rate=FLAGS.d_lr, beta_1=0.5, beta_2=0.9)
 
     """
     Training steps for both

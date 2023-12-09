@@ -25,13 +25,14 @@ import os
 
 from absl import app
 from absl import flags
-from tensorflow import keras
 from tensorflow.python.ops import control_flow_util
+import keras
 
 from train import WGANGP, DatasetPipeline
 
 keras.backend.clear_session()
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 control_flow_util.ENABLE_CONTROL_FLOW_V2 = True
 FLAGS = flags.FLAGS
 

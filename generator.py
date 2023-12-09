@@ -17,27 +17,28 @@
 #  along with PFYP.  If not, see <http://www.gnu.org/licenses/>.
 
 import tensorflow as tf
+import keras
 
 from resnet import ResBlock
 
 
-class BuildGenerator(tf.keras.Model):
+class BuildGenerator(keras.Model):
     def __init__(self, layer_dim, seq_len):
         super(BuildGenerator, self).__init__()
         dim = layer_dim
         self.dim = layer_dim
         self.seq_len = seq_len
 
-        self.fc1 = tf.keras.layers.Dense(128, activation='linear', input_shape=(dim * seq_len,))
-        self.block = tf.keras.Sequential([
+        self.fc1 = keras.layers.Dense(128, activation='linear', input_shape=(dim * seq_len,))
+        self.block = keras.Sequential([
             ResBlock(dim),
             ResBlock(dim),
             ResBlock(dim),
             ResBlock(dim),
             ResBlock(dim),
         ])
-        self.conv1 = tf.keras.layers.Conv1D(64, 32, 1, padding='valid')
-        self.softmax = tf.keras.layers.Softmax(axis=1)
+        self.conv1 = keras.layers.Conv1D(64, 32, 1, padding='valid')
+        self.softmax = keras.layers.Softmax(axis=1)
 
     def call(self, noise, **kwargs):
         output = self.fc1(noise)
